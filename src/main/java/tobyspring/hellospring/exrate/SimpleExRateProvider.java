@@ -1,11 +1,10 @@
-package tobyspring.hellospring.v8;
+package tobyspring.hellospring.exrate;
 
-import org.springframework.stereotype.Component;
+import tobyspring.hellospring.payment.ExRateProvider;
 
 import java.io.IOException;
 import java.math.BigDecimal;
 
-@Component
 public class SimpleExRateProvider implements ExRateProvider {
     @Override
     public BigDecimal getExRate(String currency) throws IOException {
