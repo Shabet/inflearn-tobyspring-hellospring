@@ -1,11 +1,11 @@
-package tobyspring.hellospring.v10;
+package tobyspring.hellospring;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import tobyspring.hellospring.v10.exrate.CachedExRateProvider;
-import tobyspring.hellospring.v10.payment.ExRateProvider;
-import tobyspring.hellospring.v10.exrate.WebApiExRateProvider;
-import tobyspring.hellospring.v10.payment.PaymentService;
+import tobyspring.hellospring.exrate.CachedExRateProvider;
+import tobyspring.hellospring.payment.ExRateProvider;
+import tobyspring.hellospring.exrate.WebApiExRateProvider;
+import tobyspring.hellospring.payment.PaymentService;
 
 @Configuration
 public class ObjectFactory {
