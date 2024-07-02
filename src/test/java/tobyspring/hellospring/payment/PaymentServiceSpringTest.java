@@ -26,7 +26,7 @@ class PaymentServiceSpringTest {
     @Autowired ExRateProviderStub exRateProviderStub;
 
     @Test
-    void convertedAmount() throws IOException {
+    void convertedAmount() {
 //        BeanFactory beanFactory = new AnnotationConfigApplicationContext(TestObjectFactory.class);
 //        PaymentService paymentService = beanFactory.getBean(PaymentService.class);
 
@@ -46,7 +46,7 @@ class PaymentServiceSpringTest {
     }
 
     @Test
-    void validUntil() throws IOException {
+    void validUntil() {
         Payment payment = paymentService.prepare(1L, "USD", BigDecimal.TEN);
 
         //valid until이 prepare() 30분 뒤로 설정되었는가?
