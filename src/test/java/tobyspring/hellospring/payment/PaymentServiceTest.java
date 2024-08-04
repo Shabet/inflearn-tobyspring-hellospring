@@ -4,6 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import tobyspring.hellospring.api.ApiTemplate;
 import tobyspring.hellospring.exrate.WebApiExRateProvider;
 
 import java.io.IOException;
@@ -27,7 +28,7 @@ class PaymentServiceTest {
     @Test
     @DisplayName("prepare 메소드가 요구사항 3가지를 잘 충족했는지 검증")
     void prepare() {
-        PaymentService paymentService = new PaymentService(new WebApiExRateProvider(), this.clock);
+        PaymentService paymentService = new PaymentService(new WebApiExRateProvider(new ApiTemplate()), this.clock);
 
         Payment payment = paymentService.prepare(1L, "USD", BigDecimal.TEN);
 
