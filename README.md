@@ -23,3 +23,16 @@ java {
 ```
 - settting.gradle 수정
 - settings -> gradle 에서 gradle jvm 을 17 -> 21 로 변경
+
+
+## setion05
+## JPA 설정
+
+- in build.gradle,
+
+```
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    runtimeOnly 'com.h2database:h2'
+}
+```
