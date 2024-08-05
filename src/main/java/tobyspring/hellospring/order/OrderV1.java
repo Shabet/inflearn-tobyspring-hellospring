@@ -4,20 +4,20 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
-public class Order {
+@Entity
+@Table(name = "orders")
+public class OrderV1 {
+    @Id @GeneratedValue
     private Long id;
 
+    @Column(unique = true)
     private String no;
 
     private BigDecimal total;
 
-    public Order(String no, BigDecimal total) {
+    public OrderV1(String no, BigDecimal total) {
         this.no = no;
         this.total = total;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Long getId() {

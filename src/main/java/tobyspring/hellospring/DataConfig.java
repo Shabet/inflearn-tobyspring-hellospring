@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManagerFactory;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -11,8 +12,7 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-import tobyspring.hellospring.data.OrderRepository;
-import tobyspring.hellospring.data.OrderRepositoryV1;
+import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 
@@ -25,7 +25,7 @@ public class DataConfig {
     }
 
     //entity manager factory
-    @Bean
+/*    @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
         emf.setDataSource(dataSource());
@@ -37,19 +37,29 @@ public class DataConfig {
         }});
 
         return emf;
-    }
+    }*/
 
-    @Bean
+/*    @Bean
     public BeanPostProcessor persistenceAnnotationBeanPostProcessor() {
         return new PersistenceAnnotationBeanPostProcessor();
-    }
+    }*/
 
     @Bean
+    public PlatformTransactionManager transactionManager() {
+        return new DataSourceTransactionManager(dataSource());
+    }
+
+//    @Bean
+//    public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
+//        return new JpaTransactionManager(emf);
+//    }
+
+/*    @Bean
     public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
         return new JpaTransactionManager(emf);
-    }
+    }*/
 
-    @Bean
+/*    @Bean
     public OrderRepository orderRepository() {
         return new OrderRepository();
     }
@@ -57,5 +67,5 @@ public class DataConfig {
     @Bean
     public OrderRepositoryV1 orderRepositoryV1(EntityManagerFactory emf) {
         return new OrderRepositoryV1(emf);
-    }
+    }*/
 }
